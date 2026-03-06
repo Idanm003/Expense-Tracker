@@ -7,7 +7,7 @@ function Dashboard({ transactions }) {
     const [activeType, setActiveType] = useState('Expense');
 
     // Filter transactions based on active type
-    const filtered = transactions.filter(t => t.type === activeType);
+    const filtered = activeType === 'All' ? transactions : transactions.filter(t => t.type === activeType);
 
     // Calculate total income
     const totalIncome = transactions
@@ -35,6 +35,12 @@ function Dashboard({ transactions }) {
         <div className="dashboard">
             <div className="type-toggle">
                 <button
+                    className={`toggle-btn all-btn ${activeType === 'All' ? 'active' : ''}`}
+                    onClick={() => setActiveType('All')}
+                >
+                    ALL
+                </button>
+                <button
                     className={`toggle-btn expense-btn ${activeType === 'Expense' ? 'active' : ''}`}
                     onClick={() => setActiveType('Expense')}
                 >
@@ -51,7 +57,7 @@ function Dashboard({ transactions }) {
             <div className="budget-label">BUDGET</div>
 
             {Object.keys(grouped).length === 0 ? (
-                <p className="empty-dashboard">No {activeType.toLowerCase()} transactions yet.</p>
+                <p className="empty-dashboard">No {activeType === 'All' ? '' : activeType.toLowerCase() + ' '}transactions yet.</p>
             ) : (
                 <ul className="category-list">
                     {Object.entries(grouped).map(([category, { count, total }]) => (
@@ -69,12 +75,25 @@ function Dashboard({ transactions }) {
             )}
 
             <div className="dashboard-footer">
-                <div className="footer-row">
-                    <span>TOTAL {activeType.toUpperCase()}</span>
-                    <span className={activeType === 'Expense' ? 'expense-amount' : 'income-amount'}>
-                        ${(activeType === 'Expense' ? totalExpense : totalIncome).toFixed(2)}
-                    </span>
-                </div>
+                {activeType === 'All' ? (
+                    <>
+                        <div className="footer-row">
+                            <span>TOTAL INCOME</span>
+                            <span className="income-amount">${totalIncome.toFixed(2)}</span>
+                        </div>
+                        <div className="footer-row">
+                            <span>TOTAL EXPENSE</span>
+                            <span className="expense-amount">${totalExpense.toFixed(2)}</span>
+                        </div>
+                    </>
+                ) : (
+                    <div className="footer-row">
+                        <span>TOTAL {activeType.toUpperCase()}</span>
+                        <span className={activeType === 'Expense' ? 'expense-amount' : 'income-amount'}>
+                            ${(activeType === 'Expense' ? totalExpense : totalIncome).toFixed(2)}
+                        </span>
+                    </div>
+                )}
                 <div className="footer-row balance-row">
                     <span>BALANCE</span>
                     <span className={balance >= 0 ? 'income-amount' : 'expense-amount'}>

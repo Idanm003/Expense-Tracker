@@ -25,6 +25,17 @@
     letter-spacing: 0.5px;
 }
 
+.all-btn {
+    background: #E3F2FD;
+    color: #1E88E5;
+}
+
+.all-btn.active {
+    background: #1E88E5;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.35);
+}
+
 .expense-btn {
     background: #FFE0DC;
     color: #FF6F61;
@@ -82,6 +93,14 @@
     display: flex;
     align-items: center;
     gap: 6px;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
 }
 
 .category-name {
@@ -173,6 +192,16 @@ body.dark .balance-row {
 
 body.dark .empty-dashboard {
     color: #8b949e;
+}
+
+body.dark .all-btn {
+    background: #0d1f33;
+    color: #58a6ff;
+}
+
+body.dark .all-btn.active {
+    background: #1158a7;
+    color: #ffffff;
 }
 
 body.dark .expense-btn {
