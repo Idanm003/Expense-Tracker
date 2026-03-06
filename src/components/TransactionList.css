@@ -1,0 +1,122 @@
+.transaction-list-container {
+    margin: 20px 0;
+}
+
+.transaction-list-container h2 {
+    color: #2E7D32;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #F1F8E9;
+    border-radius: 12px;
+    border: 2px solid #C5E1A5;
+    color: #2E7D32;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 15px rgba(76, 175, 80, 0.1);
+}
+
+.empty-state::before {
+    content: '💰';
+    display: block;
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.transactions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.category-filter {
+    background: #ffffff;
+    border: 2px solid #C5E1A5;
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: #2E7D32;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-filter:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);
+}
+
+.header-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.manage-categories-button {
+    background: linear-gradient(135deg, #00ACC1 0%, #00BCD4 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.manage-categories-button:hover {
+    background: linear-gradient(135deg, #00BCD4 0%, #26C6DA 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 188, 212, 0.3);
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .transaction-list-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .header-controls {
+        gap: 12px;
+    }
+
+    .manage-categories-button {
+        padding: 9px 18px;
+        font-size: 0.92rem;
+    }
+
+    .category-filter {
+        padding: 9px 13px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .transactions-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .transactions-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .header-controls {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .manage-categories-button,
+    .category-filter {
+        width: 100%;
+    }
+}
