@@ -1,0 +1,124 @@
+.reports {
+    background: #ffffff;
+    border: 2px solid #E8F5E9;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.1);
+    margin-bottom: 20px;
+}
+
+.reports .type-toggle {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.all-btn {
+    background: #E3F2FD;
+    color: #1976D2;
+}
+
+.all-btn.active {
+    background: #1976D2;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(25, 118, 210, 0.35);
+}
+
+body.dark .all-btn {
+    background: #0d1f35;
+    color: #58a6ff;
+}
+
+body.dark .all-btn.active {
+    background: #1f6feb;
+    color: #ffffff;
+}
+
+.reports-subtitle {
+    color: #9E9E9E;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.empty-reports {
+    color: #9E9E9E;
+    text-align: center;
+    padding: 60px 0;
+    font-size: 1rem;
+}
+
+.reports-legend-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0;
+    border-top: 1px solid #E8F5E9;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #E8F5E9;
+    font-size: 0.9rem;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-name {
+    flex: 1;
+    font-weight: 500;
+    color: #424242;
+}
+
+.legend-value {
+    font-weight: 700;
+    color: #424242;
+    min-width: 70px;
+    text-align: right;
+}
+
+.legend-pct {
+    font-weight: 600;
+    color: #9E9E9E;
+    min-width: 42px;
+    text-align: right;
+}
+
+/* Dark mode */
+body.dark .reports {
+    background: #21262d;
+    border-color: #30363d;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .reports-subtitle {
+    color: #8b949e;
+}
+
+body.dark .reports-legend-list {
+    border-top-color: #30363d;
+}
+
+body.dark .legend-item {
+    border-bottom-color: #30363d;
+}
+
+body.dark .legend-name,
+body.dark .legend-value {
+    color: #c9d1d9;
+}
+
+body.dark .legend-pct {
+    color: #8b949e;
+}
+
+body.dark .empty-reports {
+    color: #8b949e;
+}

@@ -15,6 +15,7 @@ body {
     max-width: 900px;
     margin: 0 auto;
     padding: 30px;
+    position: relative;
     background: #ffffff;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(46, 125, 50, 0.15);
@@ -28,6 +29,77 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: 0.5px;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.theme-toggle:hover {
+    background: #66BB6A;
+    transform: translateY(-2px);
+}
+
+body.dark {
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+}
+
+body.dark .App {
+    background: #161b22;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border-color: #30363d;
+}
+
+body.dark .App h1 {
+    color: #3fb950;
+}
+
+body.dark .theme-toggle {
+    background: #238636;
+}
+
+body.dark .theme-toggle:hover {
+    background: #3fb950;
+}
+
+.fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+    color: #ffffff;
+    font-size: 2rem;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(76, 175, 80, 0.45);
+    z-index: 200;
+    transition: all 0.3s ease;
+}
+
+.fab:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.55);
+}
+
+body.dark .fab {
+    background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+    box-shadow: 0 4px 20px rgba(63, 185, 80, 0.4);
 }
 
 /* Tablet and smaller */

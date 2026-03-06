@@ -1,0 +1,65 @@
+.navbar {
+    display: flex;
+    background: #ffffff;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    border: 2px solid #C5E1A5;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.1);
+}
+
+.nav-tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 14px 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #9E9E9E;
+    transition: all 0.2s ease;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.nav-tab:hover {
+    background: #F1F8E9;
+    color: #4CAF50;
+}
+
+.nav-tab.active {
+    background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+    color: #ffffff;
+}
+
+.nav-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.nav-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
+}
+
+/* Dark mode */
+body.dark .navbar {
+    background: #21262d;
+    border-color: #30363d;
+}
+
+body.dark .nav-tab {
+    color: #8b949e;
+}
+
+body.dark .nav-tab:hover {
+    background: #161b22;
+    color: #3fb950;
+}
+
+body.dark .nav-tab.active {
+    background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+    color: #ffffff;
+}

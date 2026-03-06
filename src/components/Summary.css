@@ -60,6 +60,43 @@
     color: #FF6F61;
 }
 
+body.dark .summary-card {
+    background: #21262d;
+    border-color: #30363d;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .income-summary {
+    background: #0f2a14;
+    border-left-color: #3fb950;
+}
+
+body.dark .expense-summary {
+    background: #2a0f0f;
+    border-left-color: #f85149;
+}
+
+body.dark .summary-card h2 {
+    color: #3fb950;
+}
+
+body.dark .summary-card p {
+    color: #c9d1d9;
+    border-bottom-color: rgba(63, 185, 80, 0.15);
+}
+
+body.dark .summary-card p:last-child {
+    border-top-color: rgba(63, 185, 80, 0.2);
+}
+
+body.dark .income-summary p:last-child {
+    color: #3fb950;
+}
+
+body.dark .expense-summary p:last-child {
+    color: #f85149;
+}
+
 /* Tablet */
 @media (max-width: 1024px) and (min-width: 769px) {
     .summary-card {

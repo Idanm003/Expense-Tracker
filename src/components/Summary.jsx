@@ -1,16 +1,21 @@
 import './Summary.css';
 
 function Summary(props) {
+
+    // Destructure transactions from props
     const { transactions } = props;
     
+    // Calculate total income, total expense, and net balance
     const totalIncome = transactions
         .filter(transaction => transaction.type === 'Income')
         .reduce((sum, transaction) => sum + transaction.totalAmount, 0);
-        
+    
+    // Calculate total expenses and balance
     const totalExpense = transactions
         .filter(transaction => transaction.type === 'Expense')
         .reduce((sum, transaction) => sum + transaction.totalAmount, 0);
-        
+    
+    // Calculate net balance
     const netBalance = totalIncome - totalExpense;
 
     return (

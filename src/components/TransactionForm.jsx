@@ -3,18 +3,19 @@ import './TransactionForm.css';
 
 function TransactionForm(props) {
 
-
+    // Initial form data state
     const initialFormData = {
         description: "",
-        pricePerUnit: 0,
+        pricePerUnit: "",
         quantity: 1,
         totalAmount: 0,
         paymentMethod: "",
         category: "",
-        date: "",
+        date: new Date().toISOString().split('T')[0],
         type: ""
     };
 
+    // Form data state
     const [formData, setFormData] = useState(initialFormData);
 
     useEffect(() => {
@@ -27,6 +28,7 @@ function TransactionForm(props) {
         }
     }, [formData.pricePerUnit, formData.quantity]);
 
+    // Handle form changes
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
@@ -34,6 +36,8 @@ function TransactionForm(props) {
             [name]: value
         }));
     };
+
+    // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
         const buttonValue = e.nativeEvent.submitter.value;
@@ -56,6 +60,7 @@ function TransactionForm(props) {
                 type="text"
                 name="description"
                 placeholder="Description"
+                autoFocus
                 value={formData.description}
                 onChange={handleChange}
             />
@@ -63,7 +68,7 @@ function TransactionForm(props) {
             <input
                 type="number"
                 name="pricePerUnit"
-                placeholder="Price per Unit"
+                placeholder="0"
                 min={0}
                 value={formData.pricePerUnit}
                 onChange={handleChange}

@@ -74,6 +74,34 @@
     transform: translateY(-2px);
 }
 
+body.dark .transaction-card {
+    background: #21262d;
+    border-color: #30363d;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .transaction-card.income-card {
+    background: #0f2a14;
+    border-left-color: #3fb950;
+}
+
+body.dark .transaction-card.expense-card {
+    background: #2a0f0f;
+    border-left-color: #f85149;
+}
+
+body.dark .transaction-title {
+    color: #3fb950;
+}
+
+body.dark .transaction-info {
+    color: #c9d1d9;
+}
+
+body.dark .transaction-info .label {
+    color: #58a6ff;
+}
+
 /* Tablet */
 @media (max-width: 1024px) and (min-width: 769px) {
     .transaction-card {

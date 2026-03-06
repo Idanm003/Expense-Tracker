@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import TransactionForm from './components/TransactionForm';
 import TransactionList from './components/TransactionList';
-import Summary from './components/Summary';
 import HomePage from './components/HomePage';
+import NavBar from './components/NavBar';
+import Dashboard from './components/Dashboard';
+import Reports from './components/Reports';
+import AddTransactionModal from './components/AddTransactionModal';
 
 function App() {
 
@@ -11,6 +13,9 @@ function App() {
 
     // State to toggle between home page and app
     const [showHome, setShowHome] = useState(true);
+
+    // Dark mode state
+    const [darkMode, setDarkMode] = useState(() => localStorage.getItem('darkMode') === 'true');
 
     // State to track if data has been loaded from localStorage
     const [isLoaded, setIsLoaded] = useState(false);
@@ -28,7 +33,17 @@ function App() {
     // State and handler for category manager
     const [isCategoryManagerOpen, setIsCategoryManagerOpen] = useState(false);
 
+    // Active tab and modal state
+    const [activeTab, setActiveTab] = useState('dashboard');
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     //Effects
+
+    // Apply dark mode class to body
+    useEffect(() => {
+        document.body.classList.toggle('dark', darkMode);
+        localStorage.setItem('darkMode', darkMode);
+    }, [darkMode]);
 
     // Load transactions and categories from localStorage on mount
     useEffect(() => {
@@ -124,29 +139,42 @@ function App() {
 
     return (
         <div className="App">
+            <button className="theme-toggle" onClick={() => setDarkMode(prev => !prev)}>
+                {darkMode ? '☀️ Light' : '🌙 Dark'}
+            </button>
             {showHome ? (
                 <HomePage onGetStarted={() => setShowHome(false)} />
             ) : (
                 <div>
                     <h1>Expense Tracker</h1>
-                    <TransactionForm
-                        onAddTransaction={handleAddTransaction}
-                        categories={categories}
-                    />
-                    <TransactionList
-                        transactions={filteredTransactions}
-                        onDeleteTransaction={deleteTransaction}
-                        categories={categories}
-                        selectedCategory={selectedCategory}
-                        onCategoryChange={handleCategoryChange}
-                        isCategoryManagerOpen={isCategoryManagerOpen}
-                        onToggleCategoryManager={toggleCategoryManager}
-                        onAddCategory={addCategory}
-                        onDeleteCategory={deleteCategory}
-                    />
-                    <Summary
-                        transactions={transactions}
-                    />
+                    <NavBar activeTab={activeTab} onTabChange={setActiveTab} />
+                    {activeTab === 'dashboard' && (
+                        <Dashboard transactions={transactions} />
+                    )}
+                    {activeTab === 'details' && (
+                        <TransactionList
+                            transactions={filteredTransactions}
+                            onDeleteTransaction={deleteTransaction}
+                            categories={categories}
+                            selectedCategory={selectedCategory}
+                            onCategoryChange={handleCategoryChange}
+                            isCategoryManagerOpen={isCategoryManagerOpen}
+                            onToggleCategoryManager={toggleCategoryManager}
+                            onAddCategory={addCategory}
+                            onDeleteCategory={deleteCategory}
+                        />
+                    )}
+                    {activeTab === 'reports' && (
+                        <Reports transactions={transactions} />
+                    )}
+                    <button className="fab" onClick={() => setIsModalOpen(true)}>+</button>
+                    {isModalOpen && (
+                        <AddTransactionModal
+                            onClose={() => setIsModalOpen(false)}
+                            onAddTransaction={handleAddTransaction}
+                            categories={categories}
+                        />
+                    )}
                 </div>
             )}
         </div>

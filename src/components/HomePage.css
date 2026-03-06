@@ -57,6 +57,37 @@
     box-shadow: 0 6px 25px rgba(76, 175, 80, 0.4);
 }
 
+body.dark .home-page {
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+}
+
+body.dark .home-content {
+    background: rgba(22, 27, 34, 0.95);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+body.dark .home-title {
+    color: #3fb950;
+}
+
+body.dark .home-tagline {
+    color: #c9d1d9;
+}
+
+body.dark .home-description {
+    color: #8b949e;
+}
+
+body.dark .get-started-button {
+    background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+    box-shadow: 0 4px 15px rgba(63, 185, 80, 0.3);
+}
+
+body.dark .get-started-button:hover {
+    background: linear-gradient(135deg, #2ea043 0%, #3fb950 100%);
+    box-shadow: 0 6px 25px rgba(63, 185, 80, 0.4);
+}
+
 /* Tablet */
 @media (max-width: 1024px) and (min-width: 769px) {
     .home-content {

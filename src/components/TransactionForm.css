@@ -116,6 +116,55 @@
     transform: translateY(-2px);
 }
 
+body.dark .form-container {
+    background: #21262d;
+    border-color: #30363d;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .form-container label {
+    color: #3fb950;
+}
+
+body.dark .form-container input,
+body.dark .form-container select {
+    background: #0d1117;
+    border-color: #30363d;
+    color: #e6edf3;
+}
+
+body.dark .form-container input:focus,
+body.dark .form-container select:focus {
+    border-color: #3fb950;
+    box-shadow: 0 0 10px rgba(63, 185, 80, 0.2);
+    background: #0d1117;
+}
+
+body.dark .form-container select option {
+    background-color: #0d1117;
+    color: #e6edf3;
+}
+
+body.dark .form-container input::placeholder,
+body.dark .form-container select::placeholder {
+    color: rgba(139, 148, 158, 0.7);
+}
+
+body.dark .form-container input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+body.dark .btn-reset {
+    background-color: #21262d;
+    color: #c9d1d9;
+    border-color: #30363d;
+}
+
+body.dark .btn-reset:hover {
+    background-color: #30363d;
+    border-color: #8b949e;
+}
+
 /* Tablet */
 @media (max-width: 1024px) and (min-width: 769px) {
     .form-container {

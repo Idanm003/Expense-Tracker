@@ -2,9 +2,12 @@ import { useState } from 'react';
 import './CategoryManager.css';
 
 function CategoryManager(props) {
+
+    // State to hold the new category name input
     const [newCategoryName, setNewCategoryName] = useState('');
     const defaultCategories = ['Food', 'Utilities', 'Personal', 'Lifestyle'];
 
+    // Handle adding a new category
     const handleAddCategory = () => {
         if (newCategoryName.trim()) {
             props.onAddCategory(newCategoryName);
