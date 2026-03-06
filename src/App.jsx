@@ -175,6 +175,10 @@ function App() {
                             categories={categories}
                         />
                     )}
+                    <hr />
+                    <p style={{ textAlign: 'center', fontSize: '0.85rem', color: 'gray' }}>
+                        &copy; All rights reserved. Made by Idan Magen
+                    </p>
                 </div>
             )}
         </div>
